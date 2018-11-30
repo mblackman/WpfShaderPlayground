@@ -18,15 +18,16 @@ namespace ShaderPlayground
         public Gradient()
         {
             this.PixelShader = pixelShader;
-            Update();
-        }
-
-        public void Update()
-        {
             UpdateShaderValue(InputProperty);
             UpdateShaderValue(TopLeftColorProperty);
+            UpdateShaderValue(TopRightColorProperty);
+            UpdateShaderValue(BottomLeftColorProperty);
+            UpdateShaderValue(BottomRightColorProperty);
+            UpdateShaderValue(PhaseProperty);
+            UpdateShaderValue(FrequencyProperty);
+            UpdateShaderValue(AmplitudeProperty);
         }
-
+        
         public Brush Input
         {
             get { return (Brush)GetValue(InputProperty); }
@@ -74,5 +75,35 @@ namespace ShaderPlayground
         public static readonly DependencyProperty BottomRightColorProperty =
             DependencyProperty.Register("BottomRightColor", typeof(Color), typeof(Gradient),
               new UIPropertyMetadata(new Color(), PixelShaderConstantCallback(3)));
+
+        public float Phase
+        {
+            get { return (float)GetValue(PhaseProperty); }
+            set { SetValue(PhaseProperty, value); }
+        }
+
+        public static readonly DependencyProperty PhaseProperty =
+            DependencyProperty.Register("Phase", typeof(float), typeof(Gradient),
+                new UIPropertyMetadata(new float(), PixelShaderConstantCallback(6)));
+
+        public float Frequency
+        {
+            get { return (float)GetValue(FrequencyProperty); }
+            set { SetValue(FrequencyProperty, value); }
+        }
+
+        public static readonly DependencyProperty FrequencyProperty =
+            DependencyProperty.Register("Frequency", typeof(float), typeof(Gradient),
+                new UIPropertyMetadata(new float(), PixelShaderConstantCallback(4)));
+
+        public float Amplitude
+        {
+            get { return (float)GetValue(AmplitudeProperty); }
+            set { SetValue(AmplitudeProperty, value); }
+        }
+
+        public static readonly DependencyProperty AmplitudeProperty =
+            DependencyProperty.Register("Amplitude", typeof(float), typeof(Gradient),
+                new UIPropertyMetadata(new float(), PixelShaderConstantCallback(5)));
     }
 }

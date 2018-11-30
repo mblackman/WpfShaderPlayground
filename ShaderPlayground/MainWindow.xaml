@@ -7,9 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TabControl>
+        <TabControl SelectedIndex="1">
             <TabItem Header="Gradient">
                 <local:GradientControl/>
+            </TabItem>
+            <TabItem Header="Image">
+                <local:PhotoEditor/>
             </TabItem>
         </TabControl>
     </Grid>

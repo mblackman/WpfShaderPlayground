@@ -1,0 +1,23 @@
+//
+// FX Version: fx_5_0
+//
+// 1 local buffer(s)
+//
+cbuffer $Globals
+{
+    float4  topLeftColor : packoffset(c0.x);// Offset:    0, size:   16
+    float4  topRightColor : packoffset(c1.x);// Offset:   16, size:   16
+    float4  bottomLeftColor : packoffset(c2.x);// Offset:   32, size:   16
+    float4  bottomRightColor : packoffset(c3.x);// Offset:   48, size:   16
+    float   frequency : packoffset(c4.x);// Offset:   64, size:    4
+    float   amplitude : packoffset(c5.x);// Offset:   80, size:    4
+    float   phase : packoffset(c6.x);   // Offset:   96, size:    4
+}
+
+//
+// 1 local object(s)
+//
+SamplerState implicitInputSampler
+{
+};
+
