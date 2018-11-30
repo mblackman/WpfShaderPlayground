@@ -56,16 +56,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FunControls.xaml.cs">
+      <DependentUpon>FunControls.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GradientControl.xaml.cs">
       <DependentUpon>GradientControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="PhotoEditor.xaml.cs">
       <DependentUpon>PhotoEditor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Shader Effects\ScrollingImages.cs" />
     <Compile Include="Shader Effects\PhotoEdit.cs" />
     <Compile Include="ShaderUtilities.cs" />
     <Compile Include="Shader Effects\Grandient.cs" />
     <Compile Include="Shader Effects\Transparency.cs" />
+    <Page Include="FunControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GradientControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -117,6 +125,12 @@
     <Content Include="Resources\swarley.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\wave.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Shaders\ScrollingImages.fx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Shaders\Gradient.fx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -136,6 +150,7 @@
   <PropertyGroup>
     <PostBuildEvent>fxc /O0 /Fc /Zi /T  ps_2_0 /Fo Shaders/Transparency.ps Shaders/Transparency.fx
 fxc /O0 /Fc /Zi /T  ps_2_0 /Fo Shaders/Gradient.ps Shaders/Gradient.fx
-fxc /O0 /Fc /Zi /T  ps_2_0 /Fo Shaders/PhotoEdit.ps Shaders/PhotoEdit.fx</PostBuildEvent>
+fxc /O0 /Fc /Zi /T  ps_2_0 /Fo Shaders/PhotoEdit.ps Shaders/PhotoEdit.fx
+fxc /O0 /Fc /Zi /T  ps_2_0 /Fo Shaders/ScrollingImages.ps Shaders/ScrollingImages.fx</PostBuildEvent>
   </PropertyGroup>
 </Project>
